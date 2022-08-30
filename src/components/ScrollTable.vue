@@ -79,7 +79,7 @@ export default {
         console.log("res", res);
         this.tableData = res.data;
         this.endId = this.tableData[this.tableData.length - 1].id;
-        console.log(this.endId)
+        console.log(this.endId);
         if (this.tableData.length > 10) {
           this.timer = setInterval(this.scroll, 2000);
         } else {
@@ -105,7 +105,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 .box {
   width: 100%;
   height: 400px;
@@ -123,14 +123,16 @@ export default {
 .table_main tr {
   line-height: 32px;
 }
-.table_main thead {
-  width: 100%;
-  line-height: 40px;
-  font-size: 16px;
-  display: table;
-  table-layout: fixed;
-  border-bottom: none;
-  box-sizing: border-box;
+.table_main {
+  thead {
+    width: 100%;
+    line-height: 40px;
+    font-size: 16px;
+    display: table;
+    table-layout: fixed;
+    border-bottom: none;
+    box-sizing: border-box;
+  }
 }
 .zindex {
   position: absolute;
@@ -149,25 +151,12 @@ export default {
   box-sizing: border-box;
 }
 
-.table_main tbody {
-  display: block;
-  width: 100%;
-  background: rgba(6, 6, 122, 0.6);
-  /* height: 352px; */
-  /* 隐藏滚动条兼容 */
-  -ms-scroll-chaining: chained;
-  -ms-content-zooming: zoom;
-  -ms-scroll-rails: none;
-  -ms-content-zoom-limit-min: 100%;
-  -ms-content-zoom-limit-max: 500%;
-  /* -ms-scroll-snap-type: proximity; */
-  -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
-  -ms-overflow-style: none;
-  overflow-y: scroll;
-  /* 火狐 */
-  scrollbar-width: none;
-  /* ie */
-  -ms-overflow-style: none;
+.table_main {
+  tbody {
+    display: block;
+    width: 100%;
+    background: rgba(6, 6, 122, 0.6);
+  }
 }
 .table_main tbody::-webkit-scrollbar {
   display: none;
