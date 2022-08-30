@@ -73,19 +73,20 @@ export default {
     this.getList();
   },
   methods: {
-    getList() {
-      console.log(this.$http);
-      this.axios.get("/data.json").then((res) => {
-        console.log("res", res);
-        this.tableData = res.data;
-        this.endId = this.tableData[this.tableData.length - 1].id;
-        console.log(this.endId);
-        if (this.tableData.length > 10) {
-          this.timer = setInterval(this.scroll, 2000);
-        } else {
-          clearInterval(this.timer);
-        }
+    async getList() {
+      const { data } = await this.$http({
+        url: "/sys/data",
+        method: "get",
       });
+      console.log(data);
+      this.tableData = data.list.data;
+      this.endId = this.tableData[this.tableData.length - 1].id;
+      console.log(this.endId);
+      if (this.tableData.length > 10) {
+        this.timer = setInterval(this.scroll, 2000);
+      } else {
+        clearInterval(this.timer);
+      }
     },
     scroll() {
       this.animate = true;
@@ -94,7 +95,6 @@ export default {
         this.tableData.shift();
         this.animate = false;
         if (this.tableData[0].id === this.endId) {
-          // console.log('请求刷新数据')
           this.getList();
           clearInterval(this.timer);
         }

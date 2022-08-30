@@ -1,7 +1,5 @@
 <template>
-  <div class="hello-world">
-
-  </div>
+  <div class="hello-world"></div>
 </template>
 
 <script>
@@ -9,18 +7,22 @@ export default {
   name: "HelloWorld",
   props: {},
   data() {
-    return {
-
-    };
+    return {};
   },
   created() {
+    this.getData();
   },
   methods: {
-  }
+    async getData() {
+      const {data} = await this.$http({
+        url: "/sys/data",
+        method: "get",
+      });
+      console.log(data);
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
+<style scoped></style>
