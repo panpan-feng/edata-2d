@@ -1,9 +1,6 @@
 import Mock from 'mockjs'
 import * as scrollTable from "./modules/data"
 
-createMockRequset(scrollTable, true);
-console.log(scrollTable);
-
 /**
  * @description: 
  * @param {*} modules 模块
@@ -25,4 +22,12 @@ function createMockRequset(modules, isOpen) {
       })(modules[key]() || {})
     }
   }
+}
+
+export default function (debug) {
+  if (debug === false) {
+    return;
+  }
+  createMockRequset(scrollTable, true);
+  console.log(scrollTable);
 }

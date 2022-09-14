@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <ScrollTable msg="Welcome to Your Vue.js App"/>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <HelloWorld msg="Welcome to Your Vue"/> -->
+    <Canvas2d />
   </div>
 </template>
 
 <script>
-import ScrollTable from './components/ScrollTable.vue'
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import Canvas2d from './components/Canvas2d.vue'
 
 export default {
   name: 'App',
   components: {
-    ScrollTable,
-    HelloWorld,
+    // HelloWorld,
+    Canvas2d
   }
 }
 </script>

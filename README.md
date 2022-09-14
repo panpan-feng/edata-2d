@@ -1,4 +1,4 @@
-# vue-router-demo
+# hello-world
 
 ## Project setup
 ```
